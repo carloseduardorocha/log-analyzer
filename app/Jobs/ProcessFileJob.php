@@ -107,9 +107,13 @@ class ProcessFileJob implements ShouldQueue
         {
             $percentage = 0.15;
         }
-        else
+        elseif ($line_count <= 50000)
         {
             $percentage = 0.10;
+        }
+        else
+        {
+            $percentage = 0.05;
         }
 
         return max((int)($line_count * $percentage), 1);
