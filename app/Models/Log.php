@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -28,8 +27,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Log extends Model
 {
-    use HasFactory;
-
     public const ID              = 'id';
     public const CONSUMER_ID     = 'consumer_id';
     public const SERVICE_ID      = 'service_id';
@@ -54,7 +51,7 @@ class Log extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int,string>
+     * @var list<string>
      */
     protected $fillable = [
         self::CONSUMER_ID,
@@ -94,7 +91,7 @@ class Log extends Model
     /**
      * Get the consumer that owns the log.
      *
-     * @return BelongsTo<Consumer,Log>
+     * @return BelongsTo<Consumer, $this>
      */
     public function consumer(): BelongsTo
     {
@@ -104,7 +101,7 @@ class Log extends Model
     /**
      * Get the service that owns the log.
      *
-     * @return BelongsTo<Service,Log>
+     * @return BelongsTo<Service, $this>
      */
     public function service(): BelongsTo
     {

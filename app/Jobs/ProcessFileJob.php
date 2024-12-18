@@ -14,8 +14,8 @@ class ProcessFileJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $disk;
-    private $chunk_size;
+    private string $disk;
+    private int $chunk_size;
 
     public function __construct()
     {

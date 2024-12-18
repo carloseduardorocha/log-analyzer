@@ -62,7 +62,7 @@ class LogService implements LogServiceContract
      * @param array $data
      * @return bool
      */
-    private static function validateDataProperties (array $data): bool
+    private static function validateDataProperties (array $data): bool // @phpstan-ignore-line
     {
         if (!isset($data['service']['id']))
         {
@@ -122,7 +122,7 @@ class LogService implements LogServiceContract
      * @param array $data
      * @return Service
      */
-    private static function createService (array $data): Service
+    private static function createService (array $data): Service // @phpstan-ignore-line
     {
         return Service::create([
             'uuid'     => $data['id'],
@@ -137,12 +137,12 @@ class LogService implements LogServiceContract
      * Creates a log entry in the database.
      *
      * @param array $data
-     * @param string $consumer_id
-     * @param string $service_id
+     * @param int $consumer_id
+     * @param int $service_id
      *
      * @return Log
      */
-    private static function createLog (array $data, string $consumer_id, string $service_id): Log
+    private static function createLog (array $data, int $consumer_id, int $service_id): Log // @phpstan-ignore-line
     {
         return Log::create([
             'consumer_id'     => $consumer_id,

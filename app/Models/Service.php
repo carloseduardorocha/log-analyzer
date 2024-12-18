@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Service
@@ -20,8 +19,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Service extends Model
 {
-    use HasFactory;
-
     public const ID         = 'id';
     public const UUID       = 'uuid';
     public const NAME       = 'name';
@@ -38,7 +35,7 @@ class Service extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int,string>
+     * @var list<string>
      */
     protected $fillable = [
         self::UUID,
@@ -65,7 +62,7 @@ class Service extends Model
     /**
      * Get the logs for the service.
      *
-     * @return HasMany<Log>
+     * @return HasMany<Log, $this>
      */
     public function logs(): HasMany
     {

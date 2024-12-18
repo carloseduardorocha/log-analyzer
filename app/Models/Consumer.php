@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Consumer
@@ -19,8 +18,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Consumer extends Model
 {
-    use HasFactory;
-
     public const ID         = 'id';
     public const UUID       = 'uuid';
     public const CREATED_AT = 'created_at';
@@ -36,7 +33,7 @@ class Consumer extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int,string>
+     * @var list<string>
      */
     protected $fillable = [
         self::UUID
@@ -62,7 +59,7 @@ class Consumer extends Model
     /**
      * Get the logs for the consumer.
      *
-     * @return HasMany<Log>
+     * @return HasMany<Log, $this>
      */
     public function logs(): HasMany
     {

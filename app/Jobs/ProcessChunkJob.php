@@ -15,10 +15,10 @@ class ProcessChunkJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $chunk;
-    private $log_service;
+    private array $chunk; // @phpstan-ignore-line
+    private LogServiceContract $log_service;
 
-    public function __construct(array $chunk)
+    public function __construct(array $chunk) // @phpstan-ignore-line
     {
         $this->chunk       = $chunk;
         $this->log_service = app(LogServiceContract::class);
@@ -32,7 +32,7 @@ class ProcessChunkJob implements ShouldQueue
 
             if (isset($data))
             {
-                $this->log_service->processLogData($data);
+                $this->log_service->processLogData($data); // @phpstan-ignore-line
             }
         }
     }

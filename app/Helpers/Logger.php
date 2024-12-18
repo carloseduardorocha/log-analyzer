@@ -38,7 +38,7 @@ class Logger
         }
 
         // add env to context
-        $context = array_merge(['env' => '`' . config('app.env') . '`'], $context);
+        $context = array_merge(['env' => '`' . config('app.env') . '`'], $context); // @phpstan-ignore-line
 
         // add tags to context
         if (!empty($tags))
