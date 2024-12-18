@@ -63,6 +63,25 @@ services:
                 - ping
             retries: 3
             timeout: 5s
+    horizon:
+        build:
+            context: './vendor/laravel/sail/runtimes/8.4'
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: 'sail-8.4/horizon'
+        container_name: log-analyzer-horizon
+        command: ["php", "artisan", "horizon"]
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - sail
+        depends_on:
+            - app
+            - redis
 networks:
     sail:
         driver: bridge
