@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('consumer_id')->nullable();
-            $table->unsignedBigInteger('service_id')->nullable();
+            $table->unsignedBigInteger('consumer_id');
+            $table->unsignedBigInteger('service_id');
             $table->string('client_ip', 45)->nullable();
             $table->string('request_method', 10)->nullable();
             $table->string('request_uri', 255)->nullable();
             $table->unsignedInteger('response_status')->nullable();
-            $table->unsignedInteger('proxy_latency')->nullable();
-            $table->unsignedInteger('gateway_latency')->nullable();
-            $table->unsignedInteger('request_latency')->nullable();
+            $table->unsignedInteger('proxy_latency');
+            $table->unsignedInteger('gateway_latency');
+            $table->unsignedInteger('request_latency');
             $table->timestamp('started_at')->nullable();
             $table->timestamps();
 
