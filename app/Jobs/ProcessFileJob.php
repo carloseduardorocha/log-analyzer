@@ -15,11 +15,9 @@ class ProcessFileJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private string $disk;
-    private int $chunk_size;
 
     public function __construct()
     {
-        $this->chunk_size = 100;
         $this->disk       = 'public';
     }
 
@@ -29,8 +27,11 @@ class ProcessFileJob implements ShouldQueue
 
         foreach ($files as $file)
         {
-            $file_path = Storage::disk($this->disk)->path($file);
-            $handle    = fopen($file_path, 'r');
+            $file_path  = Storage::disk($this->disk)->path($file);
+            $line_count = self::countFileLines($file_path);
+            $chunk_size = self::determineChunkSize($line_count);
+
+            $handle = fopen($file_path, 'r');
 
             if (!$handle)
             {
@@ -48,7 +49,7 @@ class ProcessFileJob implements ShouldQueue
                     $current_chunk[] = $line;
                 }
 
-                if (count($current_chunk) === $this->chunk_size || feof($handle))
+                if (count($current_chunk) === $chunk_size || feof($handle))
                 {
                     ProcessChunkJob::dispatch($current_chunk)->onQueue('process_chunk');
                     $current_chunk = [];
@@ -58,5 +59,59 @@ class ProcessFileJob implements ShouldQueue
             fclose($handle);
             Storage::disk($this->disk)->delete($file);
         }
+    }
+
+    /**
+     * Counts the number of lines in a file.
+     *
+     * @param string $file_path
+     * @return int
+     */
+    private static function countFileLines(string $file_path): int
+    {
+        $line_count = 0;
+        $handle     = fopen($file_path, 'r');
+
+        if ($handle)
+        {
+            while (!feof($handle))
+            {
+                fgets($handle);
+                $line_count++;
+            }
+
+            fclose($handle);
+        }
+
+        return $line_count;
+    }
+
+    /**
+     * Determines the chunk size based on the number of lines in the file.
+     *
+     * @param int $line_count
+     * @return int
+     */
+    private static function determineChunkSize(int $line_count): int
+    {
+        if ($line_count <= 100)
+        {
+            return 1;
+        }
+
+        if ($line_count <= 1000)
+        {
+            $percentage = 0.20;
+        }
+        elseif ($line_count <= 10000)
+        {
+            $percentage = 0.15;
+        }
+        else
+        {
+            $percentage = 0.10;
+        }
+
+        return max((int)($line_count * $percentage), 1);
     }
 }
