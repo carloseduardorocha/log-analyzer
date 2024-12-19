@@ -1,2 +1,5 @@
 *
+!reports
+!test-files
+!logs-to-process
 !.gitignore
