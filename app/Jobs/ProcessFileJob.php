@@ -27,6 +27,11 @@ class ProcessFileJob implements ShouldQueue
 
         foreach ($files as $file)
         {
+            if (substr($file, -10) === '.gitignore')
+            {
+                continue;
+            }
+
             $file_path  = Storage::disk($this->disk)->path($file);
             $line_count = self::countFileLines($file_path);
             $chunk_size = self::determineChunkSize($line_count);
