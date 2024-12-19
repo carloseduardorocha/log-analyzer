@@ -2,6 +2,10 @@
 
 ## Log Analyzer
 
+### Project Description
+
+Log Analyzer is a tool designed to process log files by extracting and saving important information. It analyzes log files, processes the data, and generates insightful reports. These reports include the number of requests by consumer, requests by service, and average times by service.
+
 ### Project Docs
 
 - [Installation](https://github.com/carloseduardorocha/log-analyzer/wiki/Installation) - step-by-step to install the project in your development host. <br/>
