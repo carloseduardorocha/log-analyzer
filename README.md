@@ -45,3 +45,10 @@ To ensure the correct execution of the practical test and successful integration
    - After processing the log files, follow the [Generate Reports from Log Data](https://github.com/carloseduardorocha/log-analyzer/wiki/Generate-Reports-from-Log-Data) guide to generate the reports.
    - You will generate reports for requests by consumer, requests by service, and average times by service.
    - The generated reports will be saved in the `storage/app/public/reports` directory.
+
+---
+
+## 🚨 **Got any questions? Watch the tutorial video!** 🚨
+- If you have any doubts during the **installation process**, [Watch the tutorial video here](https://www.loom.com/share/7109214b320646688352f8b9b2308332?sid=fa9ab1f4-2910-4c0d-aec4-55332f1bc2b4)
+- If you have any doubts about **processing log files and extracting important information**, [Watch the tutorial here](https://www.loom.com/share/c8a855278ba54fe98aff3d2665430905?sid=52be6883-ba31-4318-a191-321b5a13f13c).
+- If you have any doubts about **generating CSV reports from your data**, [Watch the tutorial here](https://www.loom.com/share/70a3fb907e814acc849b299400ba37d5).
