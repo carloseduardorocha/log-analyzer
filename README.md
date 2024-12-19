@@ -14,5 +14,5 @@ Log Analyzer is a tool designed to process log files by extracting and saving im
 
 The project was made using the following technologies:<br/>
 
-- [PHP 8.2](https://www.php.net/) - programming language <br/>
+- [PHP 8.4](https://www.php.net/) - programming language <br/>
 - [Laravel 11](https://laravel.com/docs/11.x) - web application PHP framework. <br/>
