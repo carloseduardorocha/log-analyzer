@@ -8,7 +8,7 @@ Log Analyzer is a tool designed to process log files by extracting and saving im
 
 ### Project Docs
 
-- [Installation](https://github.com/carloseduardorocha/log-analyzer/wiki/Installation) - step-by-step to install the project in your development host. <br/>
+- [Installation Guide](https://github.com/carloseduardorocha/log-analyzer/wiki/Installation-Guide) - step-by-step to install the project in your development host. <br/>
 
 ### Technologies Docs
 
