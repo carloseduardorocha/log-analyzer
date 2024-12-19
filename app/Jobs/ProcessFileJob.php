@@ -18,12 +18,12 @@ class ProcessFileJob implements ShouldQueue
 
     public function __construct()
     {
-        $this->disk       = 'public';
+        $this->disk = 'public';
     }
 
     public function handle(): void
     {
-        $files = Storage::disk($this->disk)->allFiles();
+        $files = Storage::disk($this->disk)->allFiles('logs-to-process');
 
         foreach ($files as $file)
         {
