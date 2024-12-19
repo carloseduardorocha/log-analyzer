@@ -12,7 +12,7 @@ Log Analyzer is a tool designed to process log files by extracting and saving im
 - [Processing Log Files](https://github.com/carloseduardorocha/log-analyzer/wiki/Processing-Log-Files) - step-by-step guide to processing log files, storing data in the database, and monitoring job progress using Laravel Horizon. <br/>
 - [Generate Reports from Log Data](https://github.com/carloseduardorocha/log-analyzer/wiki/Generate-Reports-from-Log-Data) - guide to generating CSV reports from the processed log data, including requests by consumer, service, and average times by service. <br/>
 
-### Util
+### Useful Resources
 - [Postman Documentation](https://documenter.getpostman.com/view/15465603/2sAYJ1mNeY) - access the Postman collection to test the API endpoints and streamline the testing process in your development environment. <br/>
 
 ### Technologies Docs
