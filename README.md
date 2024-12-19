@@ -21,3 +21,27 @@ The project was made using the following technologies:<br/>
 
 - [PHP 8.4](https://www.php.net/) - programming language <br/>
 - [Laravel 11](https://laravel.com/docs/11.x) - web application PHP framework. <br/>
+
+--- 
+
+## 🚨 **Practical Test Execution Flow** 🚨
+
+To ensure the correct execution of the practical test and successful integration of all components, **follow the steps below** in the exact order. This will guide you through installing the project, processing log files, generating reports, and documenting the entire process:
+
+### 1. **Install the Project**
+   - Follow the [Installation Guide](https://github.com/carloseduardorocha/log-analyzer/wiki/Installation-Guide) to install the project in your development environment.
+   - Make sure all dependencies are properly set up, including configuring the database.
+
+### 2. **Postman Documentation**
+   - Use the [Postman Documentation](https://documenter.getpostman.com/view/15465603/2sAYJ1mNeY) to test the API endpoints.
+   - The Postman collection will help you interact with the endpoints easily and streamline your testing process.
+
+### 3. **Process Log Files**
+   - Follow the [Processing Log Files](https://github.com/carloseduardorocha/log-analyzer/wiki/Processing-Log-Files) guide to process the log files.
+   - This step involves uploading the log files, processing them, and storing the data in the database.
+   - You can monitor the progress of the jobs through the Laravel Horizon dashboard.
+
+### 4. **Generate Reports from Log Data**
+   - After processing the log files, follow the [Generate Reports from Log Data](https://github.com/carloseduardorocha/log-analyzer/wiki/Generate-Reports-from-Log-Data) guide to generate the reports.
+   - You will generate reports for requests by consumer, requests by service, and average times by service.
+   - The generated reports will be saved in the `storage/app/public/reports` directory.
